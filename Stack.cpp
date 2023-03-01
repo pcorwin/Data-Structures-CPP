@@ -14,9 +14,11 @@ template <class S> void Stack<S>::push(S x){
     if (isFull()){
         cout << "Stack is full\n";
     }
-    cout << "Inserted element: " << x << endl;
-    top = top + 1;
-    st[top] = x;
+    else {
+        cout << "Inserted element: " << x << endl;
+        top = top + 1;
+        st[top] = x;
+    }
 }
 
 template <class S> S Stack<S>::pop(){

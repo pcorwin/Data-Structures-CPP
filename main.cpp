@@ -1,5 +1,8 @@
 #include <iostream>
+#include <cstring>
+
 #include "Stack.cpp"
+#include "Queue.cpp"
 
 int stackDriver(){
     Stack<int> int_stack;
@@ -20,8 +23,23 @@ int stackDriver(){
     return 0;
 }
 
+int queueDriver(){
+    Queue<string> str_queue;
+    cout<<"Queue Capacity: "<< str_queue.capacity() << endl;
+    for (int i = 0; i < 11; ++i) {
+        str_queue.enqueue(('a'+to_string(i)));
+    }
+    str_queue.headElement();
+    while (!str_queue.isEmpty()){
+        str_queue.dequeue();
+        cout<<"Queue Size: "<< str_queue.size()<<endl;
+    }
+    return 0;
+}
+
 int main(){
-    stackDriver();
+    //stackDriver();
+    queueDriver();
     return 0;
 }
 

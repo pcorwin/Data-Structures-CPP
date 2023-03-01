@@ -13,6 +13,7 @@ public:
 
     void enqueue(Q x);
     Q dequeue();
+    Q tailElement();
     Q headElement();
 
     bool isEmpty();
@@ -23,6 +24,8 @@ public:
 
 private:
     int tail;
+    int head;
+    int length;
     Q qu[SIZE];
 };
 

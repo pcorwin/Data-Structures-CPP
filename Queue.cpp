@@ -8,6 +8,8 @@ using namespace std;
 
 template <class Q> Queue<Q>::Queue(){
     tail = -1;
+    head = 0;
+    length = 0;
 }
 
 template <class Q> void Queue<Q>::enqueue(Q x){
@@ -18,14 +20,31 @@ template <class Q> void Queue<Q>::enqueue(Q x){
         cout << "Queued element: " << x << endl;
         tail = tail + 1;
         qu[tail] = x;
+        length++;
     }
 }
 
 template <class Q> Q Queue<Q>::dequeue(){
-    Q dequeued_element = qu[tail];
-    tail = tail - 1;
-    cout << "Dequeued element: " << dequeued_element << endl;
-    return dequeued_element;
+    if (isEmpty()) {
+        cout << "Queue is empty\n";
+    }
+    else {
+        Q dequeued_element = qu[head];
+        head = head+1;
+        length--;
+        cout << "Dequeued element: " << dequeued_element << endl;
+        return dequeued_element;
+    }
+}
+
+template <class Q> Q Queue<Q>::tailElement(){
+    if (isEmpty()) {
+        cout << "Queue is empty" << endl;
+    }
+    else{
+        cout << "Tail element: " << qu[tail] << endl;
+        return qu[tail];
+    }
 }
 
 template <class Q> Q Queue<Q>::headElement(){
@@ -33,19 +52,19 @@ template <class Q> Q Queue<Q>::headElement(){
         cout << "Queue is empty" << endl;
     }
     else{
-        cout << "Head element: " << qu[tail] << endl;
-        return qu[tail];
+        cout << "Head element: " << qu[head] << endl;
+        return qu[head];
     }
 }
 
 template <class Q> bool Queue<Q>::isEmpty(){
-    if (tail == -1)
+    if (length == 0)
         return true;
     return false;
 }
 
 template <class Q> bool Queue<Q>::isFull(){
-    if (tail == (SIZE - 1))
+    if (length == SIZE)
         return true;
     return false;
 }
@@ -55,5 +74,5 @@ template <class Q> int Queue<Q>::capacity(){
 }
 
 template <class Q> int Queue<Q>::size(){
-    return (tail + 1);
+    return (length);
 }

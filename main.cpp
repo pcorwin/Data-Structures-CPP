@@ -30,6 +30,7 @@ int queueDriver(){
         str_queue.enqueue(('a'+to_string(i)));
     }
     str_queue.headElement();
+    str_queue.tailElement();
     while (!str_queue.isEmpty()){
         str_queue.dequeue();
         cout<<"Queue Size: "<< str_queue.size()<<endl;

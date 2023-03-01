@@ -4,6 +4,7 @@
 
 #include "Stack.h"
 #include "iostream"
+using namespace std;
 
 template <class S> Stack<S>::Stack(){
     top = -1;
@@ -16,6 +17,23 @@ template <class S> void Stack<S>::push(S x){
     cout << "Inserted element: " << x << endl;
     top = top + 1;
     st[top] = x;
+}
+
+template <class S> S Stack<S>::pop(){
+    S popped_element = st[top];
+    top = top - 1;
+    cout << "Removed element: " << popped_element << endl;
+    return popped_element;
+}
+
+template <class S> S Stack<S>::topElement(){
+    if (isEmpty()) {
+        cout << "Stack is empty" << endl;
+    }
+    else{
+        cout << "Top element: " << st[top] << endl;
+        return st[top];
+    }
 }
 
 template <class S> bool Stack<S>::isEmpty(){
@@ -38,19 +56,4 @@ template <class S> int Stack<S>::size(){
     return (top + 1);
 }
 
-template <class S> S Stack<S>::topElement(){
-    if (isEmpty()) {
-        cout << "Stack is empty" << endl;
-    }
-    else{
-        cout << "Top element: " << st[top] << endl;
-        return st[top];
-    }
-}
 
-template <class S> S Stack<S>::pop(){
-    S popped_element = st[top];
-    top = top - 1;
-    cout << "Removed element: " << popped_element << endl;
-    return popped_element;
-}

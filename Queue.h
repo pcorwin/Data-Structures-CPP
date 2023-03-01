@@ -1,5 +1,5 @@
 //
-// Created by phoebe on 2/28/23.
+// Created by phoebe on 2/28/23
 //
 
 #ifndef DATASTRUCTURES_QUEUE_H
